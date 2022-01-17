@@ -73,8 +73,9 @@ public class AdminController {
     public String update(@ModelAttribute("user") @Valid User user,
                          BindingResult bindingResult,
                          @RequestParam(value = "roleNames") String[] roleNames) {
-        if (bindingResult.hasErrors())
+        if (bindingResult.hasErrors()) {
             return "edit";
+        }
         user.setRoles(roleService.findRolesByNames(roleNames));
         userService.update(user);
         return "redirect:/admin";
