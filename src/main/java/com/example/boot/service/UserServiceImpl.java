@@ -2,10 +2,8 @@ package com.example.boot.service;
 
 
 import com.example.boot.entity.User;
-import com.example.boot.repository.RoleRepository;
 import com.example.boot.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

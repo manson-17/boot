@@ -2,9 +2,7 @@ package com.example.boot.controller;
 
 import com.example.boot.entity.User;
 import com.example.boot.service.RoleService;
-import com.example.boot.service.RoleServiceImpl;
 import com.example.boot.service.UserService;
-import com.example.boot.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,8 +53,9 @@ public class AdminController {
     public String create(@ModelAttribute("user") @Valid User user,
                          BindingResult bindingResult,
                          @RequestParam(value = "roleNames") String[] roleNames) {
-        if (bindingResult.hasErrors())
+        if (bindingResult.hasErrors()) {
             return "new";
+        }
         user.setRoles(roleService.findRolesByNames(roleNames));
         userService.save(user);
         return "redirect:/admin";
